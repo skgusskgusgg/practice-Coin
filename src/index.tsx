@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ThemeProvider } from "styled-components";
-import { theme } from "./theme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { RecoilRoot } from "recoil";
+import App2 from "./App2";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
@@ -12,11 +12,11 @@ const root = ReactDOM.createRoot(
 const queryClient = new QueryClient();
 root.render(
     <React.StrictMode>
-        <QueryClientProvider client={queryClient}>
-            <ThemeProvider theme={theme}>
-                <App />
-            </ThemeProvider>
-        </QueryClientProvider>
+        <RecoilRoot>
+            <QueryClientProvider client={queryClient}>
+                <App2 />
+            </QueryClientProvider>
+        </RecoilRoot>
     </React.StrictMode>
 );
 
