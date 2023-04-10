@@ -14,11 +14,13 @@ const root = ReactDOM.createRoot(
 const queryClient = new QueryClient();
 root.render(
     <React.StrictMode>
-        <QueryClientProvider client={queryClient}>
-            <ThemeProvider theme={darkTheme}>
-                <App2 />
-            </ThemeProvider>
-        </QueryClientProvider>
+        <RecoilRoot>
+            <QueryClientProvider client={queryClient}>
+                <ThemeProvider theme={darkTheme}>
+                    <App2 />
+                </ThemeProvider>
+            </QueryClientProvider>
+        </RecoilRoot>
     </React.StrictMode>
 );
 
