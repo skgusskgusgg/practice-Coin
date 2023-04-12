@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
-import { useSetRecoilState } from "recoil";
-import { toDoState } from "../atoms2";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { categoryState, toDoState } from "../atoms2";
 
 interface IForm {
     toDo: string;
@@ -8,12 +8,10 @@ interface IForm {
 
 export default function CreateToDo() {
     const setToDos = useSetRecoilState(toDoState);
+    const category = useRecoilValue(categoryState);
     const { register, handleSubmit, setValue } = useForm<IForm>();
     const validSubmit = ({ toDo }: IForm) => {
-        setToDos((prev) => [
-            { text: toDo, id: Date.now(), category: "TO_DO" },
-            ...prev,
-        ]);
+        setToDos((prev) => [{ text: toDo, id: Date.now(), category }, ...prev]);
         setValue("toDo", "");
     };
     return (
