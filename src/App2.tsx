@@ -8,7 +8,10 @@ export default function App2() {
     return (
         <>
             <GlobalStyle />
+<<<<<<< HEAD
+=======
             <ToDoList2 />
+>>>>>>> 9bffce2 (Recoil을 이용한 Add To Do)
         </>
     );
 }
